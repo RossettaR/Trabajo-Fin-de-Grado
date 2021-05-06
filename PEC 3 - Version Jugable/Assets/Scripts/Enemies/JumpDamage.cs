@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+
 
 public class JumpDamage : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class JumpDamage : MonoBehaviour
     public float jumpForce=2.5f;
 
     public int lifes=2;
+
+    public AudioSource clip;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -35,13 +39,15 @@ public class JumpDamage : MonoBehaviour
         if (lifes==0)
         {
             destroyParticle.SetActive(true);
+            clip.Play();
             spriteRenderer.enabled=false;
             Invoke("EnemyDie",0.2f);
         }
         
     }
-    public void EnemyDie()
+      public void EnemyDie()
     {
         Destroy(gameObject);
     }
+
 }

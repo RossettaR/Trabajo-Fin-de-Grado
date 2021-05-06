@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PlayerRespawn : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class PlayerRespawn : MonoBehaviour
     private int life;
     
     public Animator animator;
+
+    public AudioSource clip;
+
+    public AudioSource clipTouch;
 
 
     void Start()
@@ -22,6 +27,7 @@ public class PlayerRespawn : MonoBehaviour
         if (life<1)
         {
             Destroy(hearts[0].gameObject);
+            clip.Play();
             animator.Play("WilliamHurt");
             StartCoroutine (WaitToLoadScene());
         }
@@ -29,12 +35,13 @@ public class PlayerRespawn : MonoBehaviour
         {
             Destroy(hearts[1].gameObject);
             animator.Play("WilliamTouch");
+            clipTouch.Play();
         }
         else if (life<3)
         {
             Destroy(hearts[2].gameObject);
             animator.Play("WilliamTouch");
-            
+            clipTouch.Play();
         }
     }
 
@@ -46,7 +53,7 @@ public class PlayerRespawn : MonoBehaviour
 
     IEnumerator WaitToLoadScene () 
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("GameOver");
     }
 

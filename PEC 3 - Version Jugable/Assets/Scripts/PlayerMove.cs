@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMove : MonoBehaviour
 {
 
     public float runSpeed=2;
 
-    public float jumpSpeed=3;
+    public float jumpSpeed=2;
 
     public float doubleJumpSpeed=2.5f;
 
@@ -28,6 +29,16 @@ public class PlayerMove : MonoBehaviour
     public GameObject particleLeft;
 
     public GameObject particleRight;
+    
+    public float coyoteTime = 0.2f;
+
+    private float coyoteCounter;
+
+    public float jumpBufferLength = 0.5f;
+
+    private float jumpBufferCount;
+
+    public AudioSource clip;
 
 
     void Start()
@@ -36,16 +47,32 @@ public class PlayerMove : MonoBehaviour
     }
 
     private void Update() {
+
+         if (CheckGround.isGrounded)
+        {
+            coyoteCounter=coyoteTime;
+        }
+        else
+        {
+            coyoteCounter-=Time.deltaTime;
+        }
+
         
          if (Input.GetKey("space"))
         {
-            if  (CheckGround.isGrounded)
+            jumpBufferCount = jumpBufferLength;
+
+            if  (jumpBufferCount >= 0 && coyoteCounter>0f)
             {
                 canDoubleJump=true;
                 rb2D.velocity=new Vector2(rb2D.velocity.x, jumpSpeed);
+                jumpBufferCount = 0;
+                clip.Play();
             }
             else
             {
+                jumpBufferCount -=Time.deltaTime;
+
                 if(Input.GetKeyDown("space"))
                 {
                     if (canDoubleJump)
@@ -53,6 +80,7 @@ public class PlayerMove : MonoBehaviour
                         animator.SetBool("DoubleJump",true);
                         rb2D.velocity=new Vector2(rb2D.velocity.x, doubleJumpSpeed);
                         canDoubleJump=false;
+                        
                     }
                 }
             }
@@ -132,6 +160,9 @@ public class PlayerMove : MonoBehaviour
                 rb2D.velocity+=Vector2.up*Physics2D.gravity.y*(lowJumpMultiplier)*Time.deltaTime;
             }
         }
-        
+
     }
 }
+
+
+

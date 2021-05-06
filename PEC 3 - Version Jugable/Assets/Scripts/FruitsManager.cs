@@ -7,23 +7,24 @@ public class FruitsManager : MonoBehaviour
 {
    
 
-
     public Text fruitsCollected;
 
-    private int totalFruitsInLevel;
+    public int totalFruitsInLevel;
 
+   
+    
     private void Start ()
     {
         totalFruitsInLevel=transform.childCount;
+
     }
 
-    private void Update() {
-        {
-            AllFruitsCollected();
-            
-            fruitsCollected.text=((totalFruitsInLevel-transform.childCount)*100).ToString();
-          
-        }
+    private void Update() 
+    {
+         
+         AllFruitsCollected();
+        fruitsCollected.text=((totalFruitsInLevel-transform.childCount)*100).ToString();
+        PlayerPrefs.SetString("point",fruitsCollected.text); 
     }
 
     public void AllFruitsCollected()
@@ -33,5 +34,7 @@ public class FruitsManager : MonoBehaviour
             Debug.Log("");
         }
     }
+
+    
    
 }

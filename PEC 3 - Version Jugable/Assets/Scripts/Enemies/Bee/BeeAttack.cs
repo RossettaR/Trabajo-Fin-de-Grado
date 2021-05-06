@@ -36,7 +36,7 @@ public class BeeAttack : MonoBehaviour
                 if (actualCooldownAttack<0)
                 {
                     Invoke("LaunchBullet",0.5f);
-                    animator.Play("Attack");
+                    animator.Play("BeeAttack");
                     actualCooldownAttack=cooldownAttack;
                 }
             }
