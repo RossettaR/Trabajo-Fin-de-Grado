@@ -38,6 +38,7 @@ public class JumpDamage : MonoBehaviour
     {
         if (lifes==0)
         {
+            
             destroyParticle.SetActive(true);
             clip.Play();
             spriteRenderer.enabled=false;

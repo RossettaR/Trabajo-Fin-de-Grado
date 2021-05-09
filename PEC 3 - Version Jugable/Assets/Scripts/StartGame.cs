@@ -7,15 +7,17 @@ using UnityEngine.Audio;
 
 public class StartGame : MonoBehaviour
 {
-    string str = "You can Control the Game: \n\n- MOVEMENT: 'Arrows' \n\n- JUMP: 'Space' \n\n- ATTACK: 'Jump on Top' \n\n- PAUSE: 'p' \n\n- EXIT: 'Esc'";
+    string str = "You can Control the Game: \n\n- MOVEMENT: 'Arrows' \n\n- JUMP: 'Space' \n\n- ATTACK: 'Jump on Top' \n\n- PAUSE: 'p' \n\n- MUTE: 'm' \n\n- EXIT: 'Esc'";
     public Text texto;
     public AudioSource clip;
+    public AudioSource clipIntro;
 
    
     void Start()
     {
         StartCoroutine (Write());
         clip.Play();
+        clipIntro.Play();
     }
 
     IEnumerator Write()
