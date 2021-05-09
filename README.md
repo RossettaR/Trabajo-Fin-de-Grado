@@ -14,7 +14,7 @@ Para la ejecución del videojuego de esta versión parcial tendremos que ir al d
 Para la jugabilidad del esta versión:
 - Movimientos: Flechas
 - Saltar: Space
-- Pause: Esc
+- Exit: Esc
 
 ### PEC3- Versión jugable
 Enlaces del proyecto:
@@ -29,5 +29,6 @@ Para la ejecución del videojuego de esta versión jugable tendremos que ir al d
 Para la jugabilidad del esta versión:
 - Movimientos: Flechas
 - Saltar: Space
-- Pause: Esc
+- Exit: Esc
+- Pause: P
 - Mute: M
