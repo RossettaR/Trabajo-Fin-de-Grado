@@ -32,3 +32,22 @@ Para la jugabilidad del esta versión:
 - Exit: Esc
 - Pause: P
 - Mute: M
+
+### PEC Final- Versión Gold Master
+Enlaces del proyecto:
+- Presentación: https://youtu.be/A9cUUVJxEpQ
+- Tráiler: https://youtu.be/B9HLmcD3Bm0
+- Github: https://github.com/RossettaR/Trabajo-Fin-de-Grado
+- Itch.io: https://rossettar.itch.io/william-fox
+- Repositorio UOC: http://hdl.handle.net/10609/131327
+
+Para compilar es necesario un motor de Unity en la versión preferiblemente 2019.4.10. 
+
+Para la ejecución del videojuego de esta versión jugable tendremos que ir al directorio Trabajo-Fin-de-Grado/PEC Final- Versión Jugable/Ejecutable Version Gold Master y ejecutar el archivo William Fox.exe
+
+Para la jugabilidad del esta versión:
+- Movimientos: Flechas
+- Saltar: Space
+- Exit: Esc
+- Pause: P
+- Mute: M
